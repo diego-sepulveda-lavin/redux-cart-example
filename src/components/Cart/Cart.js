@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
 import Card from "../UI/Card";
-import classes from "./Cart.module.css";
 import CartItem from "./CartItem";
+import classes from "./Cart.module.css";
 
 const Cart = props => {
 	const cartItems = useSelector(state => state.cart.items);
@@ -10,8 +10,8 @@ const Cart = props => {
 
 	let cartContent;
 
-	if(totalQuantity === 0 ){
-		cartContent = <li>No items yet!</li>
+	if (totalQuantity === 0) {
+		cartContent = <li>No items yet!</li>;
 	} else {
 		cartContent = cartItems.map(item => (
 			<CartItem
@@ -24,16 +24,13 @@ const Cart = props => {
 					price: item.price,
 				}}
 			/>
-		))
+		));
 	}
-	
 
 	return (
 		<Card className={classes.cart}>
 			<h2>Your Shopping Cart</h2>
-			<ul>
-				{cartContent}
-			</ul>
+			<ul>{cartContent}</ul>
 		</Card>
 	);
 };
